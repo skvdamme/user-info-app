@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+    body
+        h1 Add yourself as a user! 
+        form(name="form", method="post", action="/formPageInfo")
+            label(for="search")
+            p First name:
+            input(name="firstname", type="text" id="formpage", placeholder="Firstname")
+            p Last name:
+            input(name="lastname", type="text" id="formpage", placeholder="Lastname")
+            p Email:
+            input(name="email", type="text" id="formpage", placeholder="Email") 
+            br
+            br
+            input(type="submit", value="Add!") 
