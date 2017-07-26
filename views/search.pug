@@ -2,12 +2,19 @@ doctype html
 html
 	head
 	body
+		a(href='./') INDEX 
+		br
+		a(href='./searchBar') SEARCH
+		br
+		a(href='formPage') USERS
+		br
 		form(action="/postRequestForm" method="post")
 			input(type="text" id="searchengine" name="search" placeholder="search") 
 			br 
 			input(type="submit" value="send")
 			div.emptyimg
-		
+			
+
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
 		script.
 			$(document).ready(function(){
