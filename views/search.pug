@@ -3,7 +3,23 @@ html
 	head
 	body
 		form(action="/postRequestForm" method="post")
-			input(type="text" name="search" placeholder="search") 
+			input(type="text" id="searchengine" name="search" placeholder="search") 
 			br 
 			input(type="submit" value="send")
-			
+		
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+		script.
+			$(document).ready(function(){
+
+			$("#searchengine").keyup(function() {
+				var object1 = {
+					result:$('#searchengine').val()
+					}
+
+
+				$.post("/ajax", object1, function(res) {
+					$(".emptyimg").html("<img src='" + res[0] + "'/>");
+				})
+			});
+
+			})

@@ -59,6 +59,27 @@ app.get('/searchBar', function (req, res) {
 
 });
 
+app.post('/ajax', function (req, res){
+    fs.readFile('users.json', function(err, data){
+        if(err){
+            throw err;
+        }
+    var json = JSON.parse(data);
+    var search = req.body.result;
+    var empty = "";
+    var array = [];
+        for (var x = 0; x < json.length; x++){
+            if (object1 === empty){
+
+            } else if(json[x].firstname.includes(search) || json[x].lastname.includes(search) || json[x].email.includes(search)){
+                var data1 = json[x].firstname + " " + json[x].lastname + " " + json[x].email;
+                array.push(data1);
+            }
+        };
+        res.send(array);
+    });
+});
+
 app.post('/postRequestForm', function (req, res) {
     console.log(req.body);
 
@@ -85,18 +106,6 @@ app.post('/postRequestForm', function (req, res) {
 
 });
     
-
-//     if (postRequestForm = users.json){
-//         res.render('postRequestForm')
-//     }
-//     else {
-//         console.log(there is no match);
-//     }    
-// }
-// compare the user information data from the search bar with your users.json
-//if match render results page
-//else tell user there's no match
-// });
 
 app.get('/formPage', function (req, res) {
     res.render('messagebox');
@@ -134,7 +143,7 @@ app.post('/formPageInfo', function (req, res){
 
 
 var server = app.listen(3000, function(req,res){
-    console.log('App running on port 3000')
+    console.log('Hey, is this thing on?!')
 });
 
 
